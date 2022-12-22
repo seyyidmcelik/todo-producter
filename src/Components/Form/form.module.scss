@@ -1,0 +1,64 @@
+.formContainer {
+    padding-top: 32px;
+    padding-bottom: 48px;
+    .inputContainer {
+        position: relative;
+        width: 600px;
+        button,
+        input {
+            font-family: "Inter", sans-serif;
+        }
+
+        input {
+            width: 600px;
+            height: 58px;
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 110%;
+            letter-spacing: 0.01em;
+            padding: 20px;
+            color: #b1bacb;
+            outline: none;
+        }
+
+        button {
+            width: 84px;
+            height: 44px;
+            padding: 12px 24px 12px 24px;
+            gap: 8px;
+            background-color: #2d70fd;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 110%;
+            letter-spacing: 0.01em;
+            border: 1px solid #2d70fd;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            right: 7px;
+            top: 7px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .formContainer {
+        .inputContainer {
+            width: 90vw;
+            input {
+                width: 90vw;
+                height: 48px;
+            }
+            button {
+                width: 64px;
+                height: 34px;
+                font-size: 16px;
+                padding: 0;
+            }
+        }
+    }
+}
