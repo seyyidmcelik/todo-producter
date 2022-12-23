@@ -6,6 +6,7 @@ import { idGenerator } from '../../utils'
 
 const Form = () => {
     const [input, setInput] = useState('')
+    const todo = useSelector((state) => state.todo.value)
 
     const dispatch = useDispatch()
 
@@ -15,6 +16,7 @@ const Form = () => {
     const handleClick = () => {
         if (input.trim().length > 0) {
             dispatch(addTask({ id: idGenerator(), task: input, status: false }))
+            localStorage.setItem('todo', JSON.stringify([...todo, { id: idGenerator(), task: input, status: false }]))
             setInput('')
         }
     }
@@ -22,6 +24,7 @@ const Form = () => {
         if (e.key === 'Enter') {
             if (input.trim().length > 0) {
                 dispatch(addTask({ id: idGenerator(), task: input, status: false }))
+                localStorage.setItem('todo', JSON.stringify([...todo, { id: idGenerator(), task: input, status: false }]))
                 setInput('')
             }
         }

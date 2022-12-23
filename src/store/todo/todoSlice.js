@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: [
+    value: JSON.parse(localStorage.getItem('todo')) || [
         {
             id: 1,
             task: 'JavaScript',

@@ -7,6 +7,10 @@ const List = () => {
     const dispatch = useDispatch()
     const handleChange = (item) => {
         let updatedUser = Object.assign({}, item, { status: !item.status })
+        let loc = JSON.parse(localStorage.getItem('todo'))
+        let index = loc.findIndex((i) => i.id == item.id)
+        loc.splice(index, 1, updatedUser)
+        localStorage.setItem('todo', JSON.stringify(loc))
         dispatch(updateStatus(updatedUser))
     }
     const sizeOfCompleted = () => {
@@ -14,6 +18,9 @@ const List = () => {
         return arr.length
     }
     const deleteDoneTask = () => {
+        let loc = JSON.parse(localStorage.getItem('todo'))
+        let newData = loc.filter((i) => i.status === false)
+        localStorage.setItem('todo', JSON.stringify(newData))
         dispatch(deleteDone(todo.filter((i) => i.status === false)))
     }
     return (
